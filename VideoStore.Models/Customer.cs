@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using SQLite;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace VideoStore.Models
@@ -12,6 +13,9 @@ namespace VideoStore.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     
+        [AutoIncrement, PrimaryKey]
+        public int Id { get; set; }
+
         private double _debts;
 
         public double Debts

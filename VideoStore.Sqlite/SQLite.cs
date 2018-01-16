@@ -123,7 +123,7 @@ namespace SQLite
 	/// <summary>
 	/// Represents an open connection to a SQLite database.
 	/// </summary>
-	public partial class SQLiteConnection : IDisposable
+	public partial class SQLiteConnection : IScope, IDisposable
 	{
 		private bool _open;
 		private TimeSpan _busyTimeout;
@@ -1490,10 +1490,15 @@ namespace SQLite
 		}
 	}
 
-	/// <summary>
-	/// Represents a parsed connection string.
-	/// </summary>
-	class SQLiteConnectionString
+    public interface IScope
+    {
+
+    }
+
+    /// <summary>
+    /// Represents a parsed connection string.
+    /// </summary>
+    class SQLiteConnectionString
 	{
 		public string ConnectionString { get; private set; }
 		public string DatabasePath { get; private set; }
