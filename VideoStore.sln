@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoStore.Models", "VideoS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoStore.DA", "VideoStore.DA\VideoStore.DA.csproj", "{1EF7718B-617F-4673-8C9D-D542C8A387F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoStore.Sqlite", "VideoStore.Sqlite\VideoStore.Sqlite.csproj", "{52462403-55FA-40BE-B4D2-0739DCA5B472}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1EF7718B-617F-4673-8C9D-D542C8A387F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EF7718B-617F-4673-8C9D-D542C8A387F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EF7718B-617F-4673-8C9D-D542C8A387F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52462403-55FA-40BE-B4D2-0739DCA5B472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52462403-55FA-40BE-B4D2-0739DCA5B472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52462403-55FA-40BE-B4D2-0739DCA5B472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52462403-55FA-40BE-B4D2-0739DCA5B472}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
