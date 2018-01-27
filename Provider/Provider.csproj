@@ -64,6 +64,7 @@
     <Compile Include="DatabaseProvider.cs" />
     <Compile Include="ProviderFacade.cs" />
     <Compile Include="UserProvider.cs" />
+    <Compile Include="VideoProvider.cs" />
     <Compile Include="ViewProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

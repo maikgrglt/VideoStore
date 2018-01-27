@@ -60,6 +60,7 @@ namespace Provider
                 {
                     window.Close();
                     _windows.Remove(window);
+                    break;
                 }
             }
         }

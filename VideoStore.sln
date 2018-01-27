@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoStore.Controller.Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoStore.Repositories", "VideoStore.Repositories\VideoStore.Repositories.csproj", "{11CA2A09-DA07-40DF-B398-89340ACC8E3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoStore.Controls", "VideoStore.Controls\VideoStore.Controls.csproj", "{3020F71E-BDE1-47D0-AB44-ABD080583BDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{11CA2A09-DA07-40DF-B398-89340ACC8E3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11CA2A09-DA07-40DF-B398-89340ACC8E3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11CA2A09-DA07-40DF-B398-89340ACC8E3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3020F71E-BDE1-47D0-AB44-ABD080583BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3020F71E-BDE1-47D0-AB44-ABD080583BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3020F71E-BDE1-47D0-AB44-ABD080583BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3020F71E-BDE1-47D0-AB44-ABD080583BDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

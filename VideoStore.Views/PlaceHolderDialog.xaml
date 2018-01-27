@@ -11,7 +11,13 @@
         SizeToContent="WidthAndHeight" d:DesignHeight="300" d:DesignWidth="300">
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:LoginViewModel}">
-            <dialogs:LoginDialog></dialogs:LoginDialog>
+            <dialogs:LoginDialog/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:VideoSelectionViewModel}">
+            <dialogs:VideoSelectionDialog/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:AddVideoToCustomerViewModel}">
+            <dialogs:AddVideoToCustomerDialog/>
         </DataTemplate>
     </Window.Resources>
 

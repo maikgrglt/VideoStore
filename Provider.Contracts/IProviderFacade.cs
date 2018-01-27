@@ -5,5 +5,6 @@
         IViewProvider ViewProvider { get; set; }
         IDatabaseProvider DatabaseProvider { get; set; }
         IUserProvider UserProvider { get; set; }
+        IVideoProvider VideoProvider { get; set; }
     }
 }

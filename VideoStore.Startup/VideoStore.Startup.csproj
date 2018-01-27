@@ -114,6 +114,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VideoStore.Controls\VideoStore.Controls.csproj">
+      <Project>{3020f71e-bde1-47d0-ab44-abd080583bda}</Project>
+      <Name>VideoStore.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VideoStore.Presenter\VideoStore.Presenter.csproj">
       <Project>{4965ECA1-6A9E-494E-9DD9-5DD7ED62104C}</Project>
       <Name>VideoStore.Presenter</Name>

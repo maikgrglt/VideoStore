@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Provider.Contracts;
 using VideoStore.Controller;
 using VideoStore.Models;
@@ -17,6 +18,11 @@ namespace Provider
             {
                 return _userController.Login(scope, username, password);
             }
+        }
+
+        public async Task<User> LoginAsync(string username, string password)
+        {
+            return await Task.Factory.StartNew(() => Login(username, password));
         }
 
         public UserProvider(IDatabaseProvider dbProvider)

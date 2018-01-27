@@ -1,4 +1,5 @@
-﻿using Provider.Contracts;
+﻿using System.Collections.Generic;
+using Provider.Contracts;
 using Security;
 using System.IO;
 using System.Reflection;
@@ -31,12 +32,35 @@ namespace Provider
             conn.CreateTable<User>();
             conn.CreateTable<Address>();
             conn.CreateTable<Customer>();
+            conn.CreateTable<Video>();
 
             var standardUser = new User();
             standardUser.Name = "jessie";
             var pass = new Sha256Encryption().GenerateSha256Hash("test");
             standardUser.Password = pass;
             conn.Insert(standardUser, typeof(User));
+
+            var videos = new List<Video>();
+            videos.Add(new Video()
+            {
+                Price = 20.3,
+                Length = 120,
+                Title = "Fast & Furious"
+            });
+            videos.Add(new Video()
+            {
+                Price = 10,
+                Length = 120,
+                Title = "The Meme"
+            });
+            videos.Add(new Video()
+            {
+                Price = 20,
+                Length = 420,
+                Title = "We did it"
+            });
+
+            conn.InsertAll(videos, typeof(Video));
         }
     }
 }

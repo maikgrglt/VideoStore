@@ -3,6 +3,7 @@ using System.Security;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Provider.Contracts;
+using VideoStore.Models;
 using VideoStore.ViewModels.Contracts;
 
 namespace VideoStore.ViewModels
@@ -14,6 +15,8 @@ namespace VideoStore.ViewModels
         private string _password;
         private string _loginMessage = string.Empty;
         private bool _isIndeterminate;
+
+        public EventHandler<User> LoginCompleted;
 
         public string Username
         {
@@ -52,14 +55,17 @@ namespace VideoStore.ViewModels
 
         private async void Login(object obj)
         {
-             IsIndeterminate = true;
-             var user = await Task.Factory.StartNew(() => _facade.UserProvider.Login(Username, Password));
-             IsIndeterminate = false;
+            IsIndeterminate = true;
+            var user = await _facade.UserProvider.LoginAsync(Username, Password);
+            IsIndeterminate = false;
             if (user == null)
+            {
                 LoginMessage = "User konnte nicht gefunden werden.";
-            var test = 1;
-            var hallo = 2;
+                return;
+            }
 
+            LoginCompleted?.Invoke(this, user);
+            _facade.ViewProvider.Close(this);
         }
     }
 }

@@ -52,6 +52,10 @@
       <Project>{3A5A7DC2-5601-4E62-87F4-4ED0E03DCD77}</Project>
       <Name>Provider</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VideoStore.Models\VideoStore.Models.csproj">
+      <Project>{AE4CBA8F-EC8A-4973-9830-91AE62B86EE7}</Project>
+      <Name>VideoStore.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VideoStore.ViewModels.Contracts\VideoStore.ViewModels.Contracts.csproj">
       <Project>{E8B1F9ED-6E5F-43FB-9BD4-6C163558C2B0}</Project>
       <Name>VideoStore.ViewModels.Contracts</Name>
