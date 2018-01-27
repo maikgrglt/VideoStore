@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using VideoStore.Presenter;
+using VideoStore.Views;
 
 namespace VideoStore.Startup
 {
@@ -7,9 +9,10 @@ namespace VideoStore.Startup
     /// </summary>
     public partial class App : Application
     {
-        private void ApplicationOnStartup(object sender, StartupEventArgs e)
+        private void App_OnStartup(object sender, StartupEventArgs e)
         {
-
+            var presenter = new MainPresenter();
+            presenter.ShowLogin();
         }
     }
 }

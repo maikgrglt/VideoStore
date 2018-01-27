@@ -1,6 +1,6 @@
-﻿using SQLite;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using SQLite;
 
 namespace VideoStore.Models
 {
@@ -28,6 +28,8 @@ namespace VideoStore.Models
 
         public string Lastname { get; set; }
 
-        public Address Address { get; set; }
+        [Indexed]
+        public int AddressId { get; set; }
+
     }
 }

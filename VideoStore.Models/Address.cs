@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿
+using SQLite;
 
 namespace VideoStore.Models
 {

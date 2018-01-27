@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VideoStore.Sqlite")]
+[assembly: AssemblyTitle("VideoStore.Controller.Contracts")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VideoStore.Sqlite")]
+[assembly: AssemblyProduct("VideoStore.Controller.Contracts")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("52462403-55fa-40be-b4d2-0739dca5b472")]
+[assembly: Guid("f78c3a9a-6ee1-4b41-b1f0-4fa8e8be70b9")]
 
 // Version information for an assembly consists of the following four values:
 //

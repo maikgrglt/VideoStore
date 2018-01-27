@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="VideoStore.Views.Dialogs.LoginDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VideoStore.Views.Dialogs"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:vm="clr-namespace:VideoStore.ViewModels;assembly=VideoStore.ViewModels"
+             xmlns:converter="clr-namespace:VideoStore.Views.Converter"
+             xmlns:components="clr-namespace:VideoStore.Views.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance vm:LoginViewModel}"
+             >
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"></BooleanToVisibilityConverter>
+    </UserControl.Resources>
+    <StackPanel Margin="20">
+
+
+
+        <Label Margin="0,0,0,20" HorizontalAlignment="Center" FontSize="32" Content="Video Store Login"></Label>
+        
+        <TextBox Margin="0,0,0,5" controls:TextBoxHelper.ClearTextButton="True"
+                 controls:TextBoxHelper.Watermark="Username"
+                 Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <PasswordBox x:Name="PasswordBox" Margin="0,0,0,15" controls:TextBoxHelper.ClearTextButton="True"
+                     controls:TextBoxHelper.Watermark="Password" 
+                     components:PasswordComponent.Attach="True"
+                     components:PasswordComponent.Password="{Binding Password,
+                                                                    Mode=TwoWay,
+                                                                    UpdateSourceTrigger=PropertyChanged}"
+                     />
+
+        <Button Width="100" Content="Login" Style="{DynamicResource SquareButtonStyle}"
+                Command="{Binding LoginCommand}"/>
+        
+        <TextBlock Text="{Binding LoginMessage, UpdateSourceTrigger=PropertyChanged}"
+                   HorizontalAlignment="Center"
+                   Margin="15"/>
+
+        <controls:ProgressRing Visibility="{Binding IsIndeterminate, Converter={StaticResource BooleanToVisibilityConverter}}"></controls:ProgressRing>
+
+    </StackPanel>
+</UserControl>

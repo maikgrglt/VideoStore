@@ -1,6 +1,5 @@
-﻿using SQLite;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿
+using SQLite;
 
 namespace VideoStore.Models
 {

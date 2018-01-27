@@ -1,27 +1,36 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using SQLite;
+
 
 namespace VideoStore.DA
 {
-    public class DataAccess
+    public class DataAccess : IDisposable
     {
         private SQLiteConnection _sqliteConnection;
+        private SQLiteAsyncConnection _sqliteAsyncConnection;
+        private string _databasePath;
 
         public DataAccess(string databasePath)
         {
             if (string.IsNullOrWhiteSpace(databasePath))
                 throw new ArgumentException("Cannot create DataAccess. Given databasePath is invalid.", nameof(databasePath));
 
-            _sqliteConnection = new SQLiteConnection(databasePath, true);
+            _databasePath = databasePath;
         }
 
         public SQLiteConnection GetScope()
         {
-            return _sqliteConnection;
+            return new SQLiteConnection(_databasePath);
+        }
+
+        public SQLiteAsyncConnection GetAsyncScope()
+        {
+            return _sqliteAsyncConnection;
+        }
+
+        public void Dispose()
+        {
+            _sqliteConnection?.Dispose();
         }
     }
 }
