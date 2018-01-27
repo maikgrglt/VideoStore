@@ -29,6 +29,20 @@ namespace VideoStore.Controller
             return _userRepo.Login(connection, username, hashedPass);
         }
 
+        public void Add(SQLiteConnection connection, User user)
+        {
+            _userRepo.Add(connection, user);
+        }
+
+        public void Update(SQLiteConnection connection, User user)
+        {
+            _userRepo.Update(connection, user);
+        }
+
+        public void Delete(SQLiteConnection connection, User user)
+        {
+            _userRepo.Delete(connection, user);
+        }
 
         public UserController()
         {

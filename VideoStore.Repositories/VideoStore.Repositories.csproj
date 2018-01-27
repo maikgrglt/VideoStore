@@ -57,8 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressRepo.cs" />
+    <Compile Include="CustomerRepo.cs" />
     <Compile Include="UserRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VideoRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VideoStore.Models\VideoStore.Models.csproj">
