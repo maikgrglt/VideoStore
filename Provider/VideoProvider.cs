@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Provider.Contracts;
 using VideoStore.Controller;
+using VideoStore.Controller.Contracts;
 using VideoStore.Models;
 
 namespace Provider
@@ -10,7 +11,7 @@ namespace Provider
     public class VideoProvider : IVideoProvider
     {
         private IDatabaseProvider _dbProvider;
-        private VideoController _videoController;
+        private IVideoController _videoController;
 
         public IEnumerable<Video> GetAllVideos()
         {

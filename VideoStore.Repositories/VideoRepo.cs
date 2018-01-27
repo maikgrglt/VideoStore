@@ -7,7 +7,7 @@ namespace VideoStore.Repositories
 {
     public static class VideoRepo
     {
-        public IEnumerable<Video> GetAllVideos(SQLiteConnection scope)
+        public static IEnumerable<Video> GetAllVideos(SQLiteConnection scope)
 	{
             return scope.Table<Video>().ToList();
         }    

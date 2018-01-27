@@ -8,7 +8,7 @@ using VideoStore.Repositories;
 
 namespace VideoStore.Controller
 {
-    class VideoController: IVideoController
+    public class VideoController: IVideoController
     {
         public IList<Video> GetAll(SQLiteConnection connection)
         {
@@ -20,7 +20,7 @@ namespace VideoStore.Controller
             if (scope == null)
                 throw new ArgumentNullException(nameof(scope));
 
-            return _videoRepo.GetAllVideos(scope);
+            return VideoRepo.GetAllVideos(scope);
         }
 
         public Video Get(SQLiteConnection connection, int id)
