@@ -1,4 +1,4 @@
-﻿using SQLite;
+using SQLite;
 
 namespace VideoStore.Models
 {
@@ -6,13 +6,11 @@ namespace VideoStore.Models
     {
         [AutoIncrement, PrimaryKey]
         public int Id { get; set; }
-
-        public double Price { get; set; }
-
+        [Indexed]
+        public int CustomerId { get; set; } 
         public string Title { get; set; }
-
-        public int Length { get; set; }
-
-        public string Picture { get; set; }
+        public string Genre { get; set; }
+        public double Price { get; set; }
+        public string CoverPath { get; set; }
     }
 }

@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAddressController.cs" />
+    <Compile Include="ICustomerController.cs" />
     <Compile Include="IUserController.cs" />
     <Compile Include="IVideoController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

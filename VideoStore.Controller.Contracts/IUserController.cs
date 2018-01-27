@@ -10,5 +10,8 @@ namespace VideoStore.Controller.Contracts
     public interface IUserController
     {
         User Login(SQLiteConnection connection, string username, string password);
+        void Add(SQLiteConnection connection, User user);
+        void Update(SQLiteConnection connection, User user);
+        void Delete(SQLiteConnection connection, User user);
     }
 }
