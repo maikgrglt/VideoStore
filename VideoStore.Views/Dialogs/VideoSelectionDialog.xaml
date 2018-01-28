@@ -32,6 +32,8 @@
         </Grid>
         
         <Separator/>
+        <Button Content="Customer Pay" Command="{Binding CustomerPayCommand}"/>
+        <Separator/>
 
         <controls:FlipView ItemsSource="{Binding Videos}"
                            Margin="10"

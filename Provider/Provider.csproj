@@ -61,6 +61,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckoutProvider.cs" />
     <Compile Include="CustomerProvider.cs" />
     <Compile Include="DatabaseProvider.cs" />
     <Compile Include="ProviderFacade.cs" />

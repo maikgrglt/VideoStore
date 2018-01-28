@@ -13,6 +13,7 @@ namespace VideoStore.ViewModels
         private IProviderFacade _facade;
 
         public EventHandler<Video> VideoSelected;
+        public EventHandler CustomerPayEvent;
 
         private User _user;
         public User User
@@ -36,6 +37,7 @@ namespace VideoStore.ViewModels
         }
 
         public ICommand AddVideoCommand { get; }
+        public ICommand CustomerPayCommand { get; }
         public ICommand DeleteVideoCommand { get; }
 
         public VideoSelectionViewModel(IProviderFacade facade, User user)
@@ -49,6 +51,7 @@ namespace VideoStore.ViewModels
             User = user;
             AddVideoCommand = new RelayCommand<object>(AddVideo);
             DeleteVideoCommand = new RelayCommand<object>(DeleteVideo);
+            CustomerPayCommand = new RelayCommand<object>(CustomerPay);
 
             Videos = new List<Video>(_facade.VideoProvider.GetAllVideos());
         }
@@ -59,6 +62,11 @@ namespace VideoStore.ViewModels
                 return;
 
             VideoSelected?.Invoke(this, _selectedVideo);
+        }
+
+        private void CustomerPay(object obj)
+        {
+            CustomerPayEvent?.Invoke(this, null);
         }
 
         private void DeleteVideo(object obj)

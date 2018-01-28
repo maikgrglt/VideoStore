@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="VideoStore.Views.Dialogs.PayDebtsDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VideoStore.Views.Dialogs"
+             xmlns:viewModels="clr-namespace:VideoStore.ViewModels;assembly=VideoStore.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance viewModels:PayDebtsViewModel}">
+    <StackPanel>
+        <TextBlock Text="{Binding Customer.Id, StringFormat={} Customernumber: {0}}"/>
+        <TextBlock Text="{Binding Customer.Firstname, StringFormat={} Firstname: {0}}"/>
+        <TextBlock Text="{Binding Customer.Lastname, StringFormat={} Lastname: {0}}"/>
+        <TextBlock Text="{Binding Customer.Debts, UpdateSourceTrigger=PropertyChanged, StringFormat={} Debts: {0:#,#.00}€}"/>
+        <TextBox Text="{Binding Money, UpdateSourceTrigger=PropertyChanged}" Height="25"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Abort" IsCancel="True"/>
+            <Button Grid.Column="2" Content="Pay" Command="{Binding PayDebtsCommand}"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAddressController.cs" />
+    <Compile Include="ICheckoutController.cs" />
     <Compile Include="ICustomerController.cs" />
     <Compile Include="IUserController.cs" />
     <Compile Include="IVideoController.cs" />

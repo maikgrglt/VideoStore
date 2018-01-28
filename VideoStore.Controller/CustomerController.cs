@@ -10,8 +10,10 @@ namespace VideoStore.Controller
 {
     public class CustomerController: ICustomerController
     {
+        private List<Customer> _customers = new List<Customer>();
         public IList<Customer> GetAll(SQLiteConnection connection)
         {
+            connection.InsertAll(_customers);
             return CustomerRepo.GetAll(connection).ToList();
         }        
 
@@ -42,6 +44,23 @@ namespace VideoStore.Controller
         public void Delete(SQLiteConnection connection, Customer customer)
         {
             CustomerRepo.Delete(connection, customer);
+        }
+        
+        public CustomerController()
+        {
+            var customer = new Customer()
+            {
+                Firstname = "Tobias",
+                Lastname = "Testing",
+                Debts = 22.0,
+                Disabled = false
+            };
+            _customers.Add(customer);
+            customer.Debts = 2000;
+            _customers.Add(customer);
+            customer.Firstname = "AAAAAAA";
+            _customers.Add(customer);
+
         }
     }
 }

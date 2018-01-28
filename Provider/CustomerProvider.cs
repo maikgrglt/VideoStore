@@ -23,6 +23,18 @@ namespace Provider
             }
         }
 
+        public void UpdateCustomer(Customer customer)
+        {
+            if(customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer));
+            }
+            using (var scope = _dbProvider.DataAccess.GetScope())
+            {
+                _customerController.Update(scope, customer);
+            }
+        }
+
         public CustomerProvider(IDatabaseProvider dbProvider)
         {
             if (dbProvider == null)

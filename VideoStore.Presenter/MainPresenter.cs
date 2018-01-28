@@ -27,7 +27,15 @@ namespace VideoStore.Presenter
         {
             _videoSelectionViewModel = new VideoSelectionViewModel(_facade, user);
             _videoSelectionViewModel.VideoSelected += OnVideoSelected;
+            _videoSelectionViewModel.CustomerPayEvent += OnCustomerPay;
             _facade.ViewProvider.ShowDialog(_videoSelectionViewModel);
+        }
+
+        private void OnCustomerPay(object sender, object eventArgs)
+        {
+            var checkoutViewModel = new CheckoutViewModel(_facade);
+            checkoutViewModel.CustomerSelected += OnCustomerSelected;
+            _facade.ViewProvider.ShowDialog(checkoutViewModel);
         }
 
         private void OnVideoSelected(object sender, Video video)
@@ -35,6 +43,12 @@ namespace VideoStore.Presenter
             var addVideoToCustomerViewModel = new AddVideoToCustomerViewModel(_facade, video);
             addVideoToCustomerViewModel.ConfirmationCompleted += OnConfirmationCompleted;
             _facade.ViewProvider.ShowDialogModal(addVideoToCustomerViewModel);
+        }
+
+        private void OnCustomerSelected(object sender, Customer customer)
+        {
+            var payDebtsViewModel = new PayDebtsViewModel(_facade, customer);
+            _facade.ViewProvider.ShowDialogModal(payDebtsViewModel);
         }
 
         private void OnConfirmationCompleted(object sender, Video video)

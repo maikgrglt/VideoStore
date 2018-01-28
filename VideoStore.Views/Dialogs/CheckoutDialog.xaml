@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="VideoStore.Views.Dialogs.CheckoutDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VideoStore.Views.Dialogs"
+             xmlns:viewModels="clr-namespace:VideoStore.ViewModels;assembly=VideoStore.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500"
+             MinHeight="600" MinWidth="1024"
+             d:DataContext="{d:DesignInstance viewModels:CheckoutViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding Checkout.Money, UpdateSourceTrigger=PropertyChanged, StringFormat={} Total Cash: {0:#,#.00}€}"
+                   Grid.Row="0"
+                   FontSize="24"
+                   FontWeight="Light"
+                   Foreground="DarkSlateGray"
+                   />
+        <TextBox Grid.Row="1" Height="25" Text="{Binding Search}"/>
+        <ListView Grid.Row="2" ItemsSource="{Binding Customers}" 
+                  SelectedItem="{Binding SelectedCustomer, UpdateSourceTrigger=PropertyChanged}"
+                  SelectionMode="Single">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="auto" Header="Customernumber" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Width="auto" Header="Firstname" DisplayMemberBinding="{Binding Firstname}"/>
+                    <GridViewColumn Width="auto" Header="Lastname" DisplayMemberBinding="{Binding Lastname}"/>
+                    <GridViewColumn Width="auto" Header="Debts" DisplayMemberBinding="{Binding Debts, UpdateSourceTrigger=PropertyChanged, StringFormat={} {0:#,#.00}€}"/>
+                    <GridViewColumn Width="auto" Header="Disabled" DisplayMemberBinding="{Binding Disabled, UpdateSourceTrigger=PropertyChanged}"/>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Pay" Height="25" Command="{Binding PayDebtsCommand}" IsEnabled="{Binding CanPay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Grid.Column="2" Content="Enable/Disable Customer" Height="25" Command="{Binding DisableCustomerCommand}"/>
+        </Grid>
+    </Grid>
+</UserControl>

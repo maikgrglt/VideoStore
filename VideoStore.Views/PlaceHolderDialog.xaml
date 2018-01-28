@@ -16,8 +16,14 @@
         <DataTemplate DataType="{x:Type vm:VideoSelectionViewModel}">
             <dialogs:VideoSelectionDialog/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:CheckoutViewModel}">
+            <dialogs:CheckoutDialog/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type vm:AddVideoToCustomerViewModel}">
             <dialogs:AddVideoToCustomerDialog/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PayDebtsViewModel}">
+            <dialogs:PayDebtsDialog/>
         </DataTemplate>
     </Window.Resources>
 

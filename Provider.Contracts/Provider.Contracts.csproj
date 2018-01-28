@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICheckoutProvider.cs" />
     <Compile Include="ICustomerProvider.cs" />
     <Compile Include="IDatabaseProvider.cs" />
     <Compile Include="IProviderFacade.cs" />

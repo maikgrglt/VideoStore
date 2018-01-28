@@ -33,12 +33,18 @@ namespace Provider
             conn.CreateTable<Address>();
             conn.CreateTable<Customer>();
             conn.CreateTable<Video>();
+            conn.CreateTable<Checkout>();
 
             var standardUser = new User();
             standardUser.Name = "jessie";
             var pass = new Sha256Encryption().GenerateSha256Hash("test");
             standardUser.Password = pass;
             conn.Insert(standardUser, typeof(User));
+            var startCaptital = new Checkout()
+            {
+                Money = 1000.00
+            };
+            conn.Insert(startCaptital, typeof(Checkout));
         }
     }
 }

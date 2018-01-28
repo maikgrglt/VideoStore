@@ -31,5 +31,14 @@ namespace VideoStore.Models
         [Indexed]
         public int AddressId { get; set; }
 
+        private bool _disabled;
+
+        public bool Disabled
+        {
+            get { return _disabled; }
+            set { _disabled = value; OnPropertyChanged(); }
+        }
+
+
     }
 }

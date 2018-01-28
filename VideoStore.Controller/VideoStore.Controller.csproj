@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressController.cs" />
+    <Compile Include="CheckoutController.cs" />
     <Compile Include="CustomerController.cs" />
     <Compile Include="UserController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

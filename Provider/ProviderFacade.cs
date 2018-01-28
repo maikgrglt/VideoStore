@@ -32,6 +32,8 @@ namespace Provider
 
         public ICustomerProvider CustomerProvider { get; set; }
 
+        public ICheckoutProvider CheckoutProvider { get; set; }
+
         public ProviderFacade()
         {
             DatabaseProvider = new DatabaseProvider();
@@ -39,6 +41,7 @@ namespace Provider
             UserProvider = new UserProvider(DatabaseProvider);
             VideoProvider = new VideoProvider(DatabaseProvider);
             CustomerProvider = new CustomerProvider(DatabaseProvider);
+            CheckoutProvider = new CheckoutProvider(DatabaseProvider);
         }
     }
 }

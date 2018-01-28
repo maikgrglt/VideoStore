@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressRepo.cs" />
+    <Compile Include="CheckoutRepo.cs" />
     <Compile Include="CustomerRepo.cs" />
     <Compile Include="UserRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
