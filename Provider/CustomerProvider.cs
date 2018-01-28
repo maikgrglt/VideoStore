@@ -23,6 +23,18 @@ namespace Provider
             }
         }
 
+        public IEnumerable<Video> GetCustomerVideos(Customer customer)
+        {
+            if (customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer));
+            }
+            using (var scope = _dbProvider.DataAccess.GetScope())
+            {
+                return _customerController.GetVideo(scope, customer);
+            }
+        }
+
         public void UpdateCustomer(Customer customer)
         {
             if(customer == null)

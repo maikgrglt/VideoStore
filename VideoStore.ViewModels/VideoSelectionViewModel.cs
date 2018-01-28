@@ -60,6 +60,11 @@ namespace VideoStore.ViewModels
         {
             if (_selectedVideo == null)
                 return;
+            if (!_selectedVideo.IsAvailable)
+            {
+                _facade.ViewProvider.ShowMessageBox("Sorry, the movie is not available.");
+                return;
+            }
 
             VideoSelected?.Invoke(this, _selectedVideo);
         }

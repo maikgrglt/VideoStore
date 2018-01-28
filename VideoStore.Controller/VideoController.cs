@@ -21,20 +21,23 @@ namespace VideoStore.Controller
                 Price = 20.3,
                 Length = 120,
                 Title = "Fast & Furious",
-                CoverPath = imgDir + "\\Images\\fastandfurious.jpg"
+                CoverPath = imgDir + "\\Images\\fastandfurious.jpg",
+                IsAvailable = true
             });
             videos.Add(new Video()
             {
                 Price = 10,
                 Length = 120,
                 Title = "Tucker and Dale vs Evil",
-                CoverPath = imgDir + "\\Images\\tuckerdalevsevil.jpg"
+                CoverPath = imgDir + "\\Images\\tuckerdalevsevil.jpg",
+                IsAvailable = true
             });
             videos.Add(new Video()
             {
                 Price = 20,
                 Length = 420,
-                Title = "We did it"
+                Title = "We did it",
+                IsAvailable = true
             });
         }
         public IList<Video> GetAll(SQLiteConnection connection)

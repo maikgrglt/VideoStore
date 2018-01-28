@@ -14,28 +14,53 @@ namespace VideoStore.ViewModels
     {
         private IProviderFacade _facade;
 
+        private List<Video> _videos;
+
+        public List<Video> Videos
+        {
+            get { return _videos; }
+            set { _videos = value; OnPropertyChanged(); }
+        }
+
+        private Video _selectedVideo;
+
+        public Video SelectedVideo
+        {
+            get { return _selectedVideo; }
+            set { _selectedVideo = value;
+                  if (value == null)
+                    CanPay = false;
+                  else
+                    CanPay = true;
+                  OnPropertyChanged();
+            }
+        }
+
+
+
         private Customer _customer;
 
         public Customer Customer
         {
             get { return _customer; }
-            set { _customer = value; }
+            set { _customer = value; OnPropertyChanged(); }
         }
+
+        private bool _canPay;
+
+        public bool CanPay
+        {
+            get { return _canPay; }
+            set { _canPay = value; OnPropertyChanged(); }
+        }
+
 
         private Checkout _checkout;
 
         public Checkout Checkout
         {
             get { return _checkout; }
-            set { _checkout = value; }
-        }
-
-        private double _money;
-
-        public double Money
-        {
-            get { return _money; }
-            set { _money = value; }
+            set { _checkout = value; OnPropertyChanged(); }
         }
 
         public ModalResult ModalResult { get; set; }
@@ -44,15 +69,19 @@ namespace VideoStore.ViewModels
 
         private void PayDebts(object obj)
         {
-            _customer.Debts -= _money;
-            _checkout.Money += _money;
+            _customer.Debts -= _selectedVideo.Price;
+            _checkout.Money += _selectedVideo.Price;
             if(_customer.Debts < 0)
             {
                 _checkout.Money += _customer.Debts;
                 _customer.Debts = 0;
             }
+            _selectedVideo.CustomerId = 0;
+            _selectedVideo.IsAvailable = true;
+            _facade.VideoProvider.UpdateVideo(_selectedVideo);
             _facade.CustomerProvider.UpdateCustomer(_customer);
             _facade.CheckoutProvider.UpdateCheckout(_checkout);
+            _videos = _facade.CustomerProvider.GetCustomerVideos(_customer).ToList();
             ModalResult = ModalResult.Ok;
         }
 
@@ -66,6 +95,7 @@ namespace VideoStore.ViewModels
             _facade = facade;
             _customer = customer;
             _checkout = _facade.CheckoutProvider.GetCheckout();
+            _videos = _facade.CustomerProvider.GetCustomerVideos(_customer).ToList();
         }
     }
 }

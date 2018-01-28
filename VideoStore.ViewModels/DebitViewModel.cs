@@ -64,6 +64,7 @@ namespace VideoStore.ViewModels
         {
             SelectedCustomer.Debts += Video.Price;
             Video.CustomerId = SelectedCustomer.Id;
+            Video.IsAvailable = false;
             _facade.VideoProvider.UpdateVideo(Video);
             _facade.CustomerProvider.UpdateCustomer(SelectedCustomer);
             _facade.ViewProvider.ShowMessageBox("Fee successfully debited from Customer.");

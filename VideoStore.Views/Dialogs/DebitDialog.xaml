@@ -67,7 +67,7 @@
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Content="cancel" Margin="0,0,15,0" Width="60" Command="{Binding CancelCommand}"></Button>
-                    <Button Content="confirm" Width="60" Command="{Binding ConfirmCommand}"></Button>
+                    <Button Content="confirm" Width="60" Command="{Binding ConfirmCommand}" IsCancel="True"></Button>
                 </StackPanel>
             </StackPanel>
         </Grid>

@@ -31,6 +31,11 @@ namespace VideoStore.Controller
             return Get(connection, customer.Id);
         }
 
+        public IEnumerable<Video> GetVideo(SQLiteConnection connection, Customer customer)
+        {
+            return CustomerRepo.GetVideos(connection, customer);
+        }
+
         public void Add(SQLiteConnection connection, Customer customer)
         {
             CustomerRepo.Add(connection, customer);
@@ -52,13 +57,11 @@ namespace VideoStore.Controller
             {
                 Firstname = "Tobias",
                 Lastname = "Testing",
-                Debts = 22.0,
+                Debts = 0,
                 Disabled = false
             };
             _customers.Add(customer);
-            customer.Debts = 2000;
             _customers.Add(customer);
-            customer.Firstname = "AAAAAAA";
             _customers.Add(customer);
 
         }

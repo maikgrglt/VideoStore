@@ -34,8 +34,9 @@ namespace VideoStore.Repositories
 
         public static IEnumerable<Video> GetVideos(SQLiteConnection connection, Customer customer)
         {
-            return (from v in connection.Table<Video>()
-                   join c in connection.Table<Customer>() on v.CustomerId equals c.Id select v).ToList();
+            IEnumerable<Video> videos = connection.Table<Video>().ToList();
+            return (from v in videos
+                   where v.CustomerId == customer.Id select v).ToList();
         }
 
     }

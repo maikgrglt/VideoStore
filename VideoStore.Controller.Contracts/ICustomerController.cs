@@ -13,6 +13,7 @@ namespace VideoStore.Controller.Contracts
         IList<Customer> GetAll(SQLiteConnection connection);
         Customer Get(SQLiteConnection connection, int id);
         Customer Get(SQLiteConnection connection, Customer customer);
+        IEnumerable<Video> GetVideo(SQLiteConnection connection, Customer customer);
         void Add(SQLiteConnection connection, Customer customer);
         void Update(SQLiteConnection connection, Customer customer);
         void Delete(SQLiteConnection connection, Customer customer);
