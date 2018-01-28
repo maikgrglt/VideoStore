@@ -17,7 +17,31 @@ namespace Provider
         {
             using (var scope = _dbProvider.DataAccess.GetScope())
             {
-                return _videoController.GetAllVideos(scope);
+                return _videoController.GetAll(scope);
+            }
+        }
+
+        public void AddVideo(Video video)
+        {
+            using(var scope = _dbProvider.DataAccess.GetScope())
+            {
+                _videoController.Add(scope, video);
+            }
+        }
+
+        public void UpdateVideo(Video video)
+        {
+            using(var scope = _dbProvider.DataAccess.GetScope())
+            {
+                _videoController.Update(scope, video);
+            }
+        }
+
+        public void DeleteVideo(Video video)
+        {
+            using(var scope = _dbProvider.DataAccess.GetScope())
+            {
+                _videoController.Delete(scope, video);
             }
         }
 

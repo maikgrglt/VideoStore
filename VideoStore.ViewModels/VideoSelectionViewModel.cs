@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Input;
 using Provider.Contracts;
@@ -35,6 +36,7 @@ namespace VideoStore.ViewModels
         }
 
         public ICommand AddVideoCommand { get; }
+        public ICommand DeleteVideoCommand { get; }
 
         public VideoSelectionViewModel(IProviderFacade facade, User user)
         {
@@ -46,17 +48,25 @@ namespace VideoStore.ViewModels
             _facade = facade;
             User = user;
             AddVideoCommand = new RelayCommand<object>(AddVideo);
+            DeleteVideoCommand = new RelayCommand<object>(DeleteVideo);
 
             Videos = new List<Video>(_facade.VideoProvider.GetAllVideos());
         }
 
         private void AddVideo(object obj)
         {
-            if (obj == null)
+            if (_selectedVideo == null)
                 return;
 
-            Video selectedVideo = (Video) obj;
-            VideoSelected?.Invoke(this, selectedVideo);
+            VideoSelected?.Invoke(this, _selectedVideo);
+        }
+
+        private void DeleteVideo(object obj)
+        {
+            if (_selectedVideo == null)
+                return;
+            _facade.VideoProvider.DeleteVideo(_selectedVideo);
+            Videos = new List<Video>(_facade.VideoProvider.GetAllVideos());
         }
     }
 }
