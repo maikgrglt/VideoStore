@@ -24,6 +24,9 @@
         </DataTemplate>
         <DataTemplate DataType="{x:Type vm:PayDebtsViewModel}">
             <dialogs:PayDebtsDialog/>
+	</DataTemplate>
+        <DataTemplate DataType="{x:Type vm:DebitViewModel}">
+            <dialogs:DebitDialog/>
         </DataTemplate>
     </Window.Resources>
 

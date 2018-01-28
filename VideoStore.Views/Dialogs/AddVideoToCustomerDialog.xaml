@@ -39,7 +39,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Height="25" Content="Abort Order" VerticalAlignment="Bottom" IsCancel="True"/>
-            <Button Grid.Column="2" Height="25" Content="Next" VerticalAlignment="Bottom" />
+            <Button Grid.Column="2" Height="25" Content="Next" VerticalAlignment="Bottom" Command="{Binding NextCommand}" />
         </Grid>
     </Grid>
 </UserControl>

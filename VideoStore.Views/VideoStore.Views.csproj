@@ -65,6 +65,9 @@
     <Compile Include="Dialogs\AddVideoToCustomerDialog.xaml.cs">
       <DependentUpon>AddVideoToCustomerDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\DebitDialog.xaml.cs">
+      <DependentUpon>DebitDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\CheckoutDialog.xaml.cs">
       <DependentUpon>CheckoutDialog.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Dialogs\AddVideoToCustomerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\DebitDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

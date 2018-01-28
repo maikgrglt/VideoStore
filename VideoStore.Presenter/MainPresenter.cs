@@ -53,7 +53,8 @@ namespace VideoStore.Presenter
 
         private void OnConfirmationCompleted(object sender, Video video)
         {
-            
+            var debitViewModel = new DebitViewModel(_facade, video);
+            _facade.ViewProvider.ShowDialogModal(debitViewModel);
         }
     }
 }

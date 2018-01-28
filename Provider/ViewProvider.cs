@@ -42,6 +42,11 @@ namespace Provider
             placeHolderWindow.Show();
         }
 
+        public void ShowMessageBox(string message)
+        {
+            MessageBox.Show(message);
+        }
+
         private void PlaceHolderWindowOnClosed(object sender, EventArgs eventArgs)
         {
             Window window = (Window) sender;
