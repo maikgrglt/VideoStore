@@ -39,6 +39,25 @@ namespace Provider
             var pass = new Sha256Encryption().GenerateSha256Hash("test");
             standardUser.Password = pass;
             conn.Insert(standardUser, typeof(User));
+
+            var customers = new List<Customer>();
+            var customer1 = new Customer()
+            {
+                Firstname = "Peter",
+                Lastname = "Zwieback",
+                Debts = 0
+            };
+            var customer2 = new Customer()
+            {
+                Firstname = "Onkel",
+                Lastname = "Dieter",
+                Debts = 0
+            };
+            customers.Add(customer1);
+            customers.Add(customer2);
+
+            conn.InsertAll(customers, typeof(Customer));
+
         }
     }
 }

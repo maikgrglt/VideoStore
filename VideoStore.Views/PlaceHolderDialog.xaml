@@ -19,6 +19,9 @@
         <DataTemplate DataType="{x:Type vm:AddVideoToCustomerViewModel}">
             <dialogs:AddVideoToCustomerDialog/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:DebitViewModel}">
+            <dialogs:DebitDialog/>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>

@@ -6,5 +6,6 @@ namespace Provider.Contracts
     public interface ICustomerProvider
     {
         IEnumerable<Customer> GetAllCustomers();
+        void UpdateCustomer(Customer customer);
     }
 }
