@@ -28,9 +28,7 @@
                     <TextBlock Text="{Binding Video.Price, StringFormat={} Price: {0:#,#.00}€}"></TextBlock>
                 </StackPanel>
             </Border>
-            <controls:NumericUpDown Width="100" Minimum="1" Maximum="10"
-                                Value="{Binding Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                HorizontalAlignment="Left" InterceptManualEnter="False"/>
+
             <TextBlock Text="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}Total price: {0:#,#.00}€}"/>
             
         </StackPanel>

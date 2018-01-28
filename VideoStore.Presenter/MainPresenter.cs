@@ -33,7 +33,13 @@ namespace VideoStore.Presenter
         private void OnVideoSelected(object sender, Video video)
         {
             var addVideoToCustomerViewModel = new AddVideoToCustomerViewModel(_facade, video);
+            addVideoToCustomerViewModel.ConfirmationCompleted += OnConfirmationCompleted;
             _facade.ViewProvider.ShowDialogModal(addVideoToCustomerViewModel);
+        }
+
+        private void OnConfirmationCompleted(object sender, Video video)
+        {
+            
         }
     }
 }

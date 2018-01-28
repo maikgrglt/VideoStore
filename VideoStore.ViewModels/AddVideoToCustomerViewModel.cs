@@ -11,6 +11,8 @@ namespace VideoStore.ViewModels
         private IProviderFacade _facade;
 
         public ICommand AbortCommand { get; }
+        public ICommand NextCommand { get; }
+        public EventHandler<Video> ConfirmationCompleted;
 
         private Video _video;
 
@@ -61,8 +63,14 @@ namespace VideoStore.ViewModels
                 throw new ArgumentNullException(nameof(video));
             _facade = facade;
             _video = video;
+            NextCommand = new RelayCommand<object>(Next);
             Count = 1;
             TotalPrice = video.Price;
+        }
+
+        private void Next(object obj)
+        {
+            ConfirmationCompleted?.Invoke(this, Video);
         }
     }
 }

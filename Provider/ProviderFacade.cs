@@ -30,12 +30,15 @@ namespace Provider
 
         public IVideoProvider VideoProvider { get; set; }
 
+        public ICustomerProvider CustomerProvider { get; set; }
+
         public ProviderFacade()
         {
             DatabaseProvider = new DatabaseProvider();
             ViewProvider = new ViewProvider();           
             UserProvider = new UserProvider(DatabaseProvider);
             VideoProvider = new VideoProvider(DatabaseProvider);
+            CustomerProvider = new CustomerProvider(DatabaseProvider);
         }
     }
 }
