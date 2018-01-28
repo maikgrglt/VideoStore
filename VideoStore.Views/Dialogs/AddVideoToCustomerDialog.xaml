@@ -13,10 +13,12 @@
              d:DataContext="{d:DesignInstance viewModels:AddVideoToCustomerViewModel}">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel HorizontalAlignment="Center" Grid.Row="0">
+        <Image Grid.Row="0" Source="{Binding Video.CoverPath}" Stretch="Uniform" RenderOptions.BitmapScalingMode="Fant"/>
+        <StackPanel HorizontalAlignment="Center" Grid.Row="1">
             <Border BorderThickness="1"
                 Background="Transparent"
                 >
@@ -30,15 +32,16 @@
                                 Value="{Binding Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 HorizontalAlignment="Left" InterceptManualEnter="False"/>
             <TextBlock Text="{Binding TotalPrice, UpdateSourceTrigger=PropertyChanged, StringFormat={}Total price: {0:#,#.00}€}"/>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Abort Order"/>
-                <Button Grid.Column="1" Content="Next" />
-            </Grid>
+            
         </StackPanel>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Height="25" Content="Abort Order" VerticalAlignment="Bottom" IsCancel="True"/>
+            <Button Grid.Column="2" Height="25" Content="Next" VerticalAlignment="Bottom" />
+        </Grid>
     </Grid>
 </UserControl>

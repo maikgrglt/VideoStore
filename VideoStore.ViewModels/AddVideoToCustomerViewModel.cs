@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Input;
 using Provider.Contracts;
 using VideoStore.Models;
 using VideoStore.ViewModels.Contracts;
@@ -8,6 +9,8 @@ namespace VideoStore.ViewModels
     public class AddVideoToCustomerViewModel : ViewModelBase, IModalDialog
     {
         private IProviderFacade _facade;
+
+        public ICommand AbortCommand { get; }
 
         private Video _video;
 
@@ -56,13 +59,10 @@ namespace VideoStore.ViewModels
                 throw new ArgumentNullException(nameof(facade));
             if (video == null)
                 throw new ArgumentNullException(nameof(video));
-
             _facade = facade;
             _video = video;
             Count = 1;
             TotalPrice = video.Price;
         }
-
-        
     }
 }
